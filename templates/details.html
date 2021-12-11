@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+
+<section class="my-5 pt-5">
+    {% block body %}
+    <h3 class="text-center fw-bolder mt-3 g-2">{{product_details.product_name}}</h3>
+    <hr class="mt-4">
+
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-lg-5 col-md-12 col-12">
+                <img src="{{product_details.image.url}}" class="img-fluid pb-1" alt="..." id="maim-img">
+                
+                
+            </div>
+            
+            <div class="col-lg-6 col-md-12 col-12">
+                <h4 class="fw-bolder">Product Catergory: {{product_details.product_cat}}</h4>
+                <strike class="badge bg-danger text-warp">Market Price: Rs.{{product_details.product_price}}.00</strike> 
+                <h5>Selling Price: Rs.{{product_details.sale_price}}.00</h5>
+                <h5>Suppler Price: Rs.{{product_details.suppler_price}}.00</h5>
+                
+                <hr>
+                <p class="fw-bolder"> Discriptions:{{product_details.discriptions}}</p>
+                <p class="fw-bolder text-success">In Stock:{{product_details.stock_contity}}</p>
+                <hr>
+                <h5>Delevery Product</h5>
+                
+                <p class="text-info">Worrenty:{{product_details.worrenty}}</p>
+                <p class="text-info">Return Policy:{{product_details.return_policy}}</p>
+                <p class="text-success">Created_time: {{product_details.created_date}}</p>
+                
+                <hr>
+                <a class="btn btn-success" href="{% url 'update_product' product_details.slug %}">Edit</a>
+                <a class="btn btn-danger" href="{% url 'delete_product' product_details.slug %}">Delete</a>
+            </div>
+
+    
+            
+
+           
+        </div>
+    </div>
+    
+    
+{% endblock body %}
+
+
+</section>
